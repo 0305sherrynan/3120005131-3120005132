@@ -2,6 +2,7 @@ import argparse
 # import random
 
 from create_questions import create_questions
+from calculation import  calculation
 def main_func():
     parser =argparse.ArgumentParser()
     # 控制生成题目的个数
@@ -19,7 +20,8 @@ def main_func():
     # 创建生成问题的类，传入生成的个数和范围
     create_questions1 = create_questions(args.n,args.r)
     create_questions1.main_work()
-
+    calculation1 = calculation()
+    calculation1.dealwith_singleline()
 
 if __name__ == '__main__':
     main_func()
