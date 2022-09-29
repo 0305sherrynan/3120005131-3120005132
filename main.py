@@ -18,9 +18,7 @@ def main_func():
     parser.add_argument('-f',type=int,default=1,help='设置功能参数')
     # 获取参数
     args = parser.parse_args()
-    # 打印参数
-    # print(args.r)
-    # 创建生成问题的类，传入生成的个数和范围
+    #创建生成问题的类，传入生成的个数和范围
     if args.f == 1:
         create_questions1 = create_questions(args.n,args.r)
         create_questions1.main_work()
@@ -30,6 +28,14 @@ def main_func():
         compare1 = compare()
         compare1.compare_correct()
         compare1.write_info()
+
+    # 性能测试代码
+    # create_questions1 = create_questions(10, 10)
+    # create_questions1.main_work()
+    # calculation1 = calculation()
+    # calculation1.dealwith_singleline()
+
+
 
 if __name__ == '__main__':
     main_func()
