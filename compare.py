@@ -1,3 +1,4 @@
+
 import math
 
 
@@ -14,6 +15,7 @@ class compare:
         self.write_file = open("./file_box/grade.txt", 'w', encoding='utf-8')
         self.correct_index = list()
 
+    # 对比两份文件，并将结果存入grade.txt
     def compare_correct(self):
         i = 1
         str = self.read_file_origin()
@@ -31,11 +33,18 @@ class compare:
             str = self.read_file_origin()
             i += 1
 
+    # 将数据存入grade.txt中
     def write_info(self):
         str11 = " ".join(map(str,self.correct_index))
         str12 = " ".join(map(str,self.false_index))
-        self.write_file.write(str11+"\n")
-        self.write_file.write(str12)
+        str11_len = str(len(self.correct_index))
+        str12_len = str(len(self.false_index))
+        # 清空
+        self.write_file.truncate()
+        self.write_file.write("Correct：" + str11_len + "(")
+        self.write_file.write(str11+")\n")
+        self.write_file.write("Wrong：" + str12_len + "(")
+        self.write_file.write(str12+")")
         self.write_file.close()
         self.student_file.close()
         self.originfile.close()
