@@ -72,12 +72,11 @@ class create_questions:
     # 随机生成一个自然数
     def create_single_nature(self):
          randnum = random.randint(1, self.boundary)
-         # print(self.boundary)
-         # print(randnum)
          return randnum
 
 
     # 随机生成一个分数
+
     def create_single_true(self):
         # 分子
         randnum = round(random.randint(1, 10))
