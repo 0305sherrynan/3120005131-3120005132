@@ -15,6 +15,8 @@ class calculation:
             self.exchange_fraction()
             self.update_to_fraction()
             self.use_eval()
+         self.originfile.close()
+         self.write_file.close()
 
     #将分数转为Fraction()
     def update_to_fraction(self):
@@ -73,9 +75,18 @@ class calculation:
 
 
     def use_eval(self):
+        f = Fraction()
         print(self.current_text)
         print()
-        self.write_file.write(str(eval(self.current_text))+"\n")
+        x = eval(self.current_text)
+        # 将浮点数转为负数存入答案中，分母为100
+        if type(x) == float:
+            print(1)
+            f = Fraction(*x.as_integer_ratio())
+            f = f.limit_denominator(100)
+            self.write_file.write(str(f)+"\n")
+        else:
+            self.write_file.write(str(x)+"\n")
     # 读取单行文件表达式
     def read_file(self):
         self.current_text = self.originfile.readline()
