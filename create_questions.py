@@ -26,7 +26,7 @@ class create_questions:
     def random_opration_count(self):
         # 随机生成0~3的数
         randnum = random.randint(0,3)
-        print(randnum)
+        # print(randnum)
         self.signal_opration_count = randnum
 
     # 生成一个表达式
@@ -41,14 +41,15 @@ class create_questions:
             # 生成自然数
             if self.nature_or_true == 0:
                 number = self.create_single_nature()
-                str = '{}{}'.format(str,number)
+                str = '{}{} '.format(str,number)
             elif self.nature_or_true == 1:
                 number_str = self.create_single_true()
-                str = '{}{}'.format(str,number_str)
+                str = '{}{} '.format(str,number_str)
             # 生成一个运算符，最后一次不用生成运算符
             if i< self.signal_opration_count:
                 operators = self.create_single_opration_signal()
                 str += operators
+                str += ' '
             i += 1
         return str
 
@@ -88,12 +89,12 @@ class create_questions:
         # 判断分子比分母大的情况
         if randnum > randnum1:
             str = '{}{}'.format(str,int(randnum/randnum1))
-            str += '’'
+            str += "'"
             str = '{}{}'.format(str,randnum%randnum1)
             str += '/'
             str = '{}{}'.format(str,randnum1)
         elif randnum <= randnum1:
-            str += '1‘'
+            str += "1'"
             str = '{}{}'.format(str,randnum)
             str += '/'
             str = '{}{}'.format(str,randnum1)
