@@ -19,6 +19,7 @@ class calculation:
          self.write_file.close()
 
     #将分数转为Fraction()
+    # @profile
     def update_to_fraction(self):
         i = 0
         str = []
@@ -41,6 +42,7 @@ class calculation:
             # print(self.current_text)
 
     # 将带分数转化为假分数，用于eval计算
+
     def exchange_fraction(self):
         i = 0
         str = []
@@ -73,7 +75,7 @@ class calculation:
             self.current_text = self.current_text.replace(yuanbiaodashi,str2[i])
             i += 1
 
-
+    # 使用eval计算得到结果并存入文件
     def use_eval(self):
         f = Fraction()
         print(self.current_text)
