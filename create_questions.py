@@ -9,11 +9,14 @@ class create_questions:
     nature_or_true = 0
     # 运算符的个数
     signal_opration_count = 0
+    # 题目文件
+    exercise_file = ""
 
     # 构造函数
-    def __init__(self,question_count,boundary):
+    def __init__(self,question_count,boundary,filename):
         self.question_count = question_count
         self.boundary = boundary
+        self.exercise_file  = open("./file_box/"+filename, 'w', encoding='utf-8')
 
     #判断是生成自然数还是真分数
     def random_nature_or_true(self):
@@ -103,14 +106,14 @@ class create_questions:
     # 主运行函数
     def main_work(self):
         i = 1
-        originfile = open("./file_box/exercises.txt", 'w', encoding='utf-8')
+
         # 清空文件内容
-        originfile.truncate()
+        self.exercise_file.truncate()
         # 要执行的次数，根据question_count
         while i<=self.question_count:
             str = self.create_single_question()
-            originfile.write(str+'\n')
+            self.exercise_file.write(str+'\n')
             i += 1
         # 关闭文件
-        originfile.close()
+        self.exercise_file.close()
 
