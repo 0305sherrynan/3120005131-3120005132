@@ -9,8 +9,8 @@ class compare:
     correct_index=list(),
     false_index=list()
 
-    def __init__(self):
-        self.originfile = open("./file_box/answerfile.txt", 'r', encoding='utf-8')
+    def __init__(self,answer):
+        self.originfile = open("./file_box/"+answer, 'r', encoding='utf-8')
         self.student_file = open("./file_box/student_answer.txt", 'r', encoding='utf-8')
         self.write_file = open("./file_box/grade.txt", 'w', encoding='utf-8')
         self.correct_index = list()
