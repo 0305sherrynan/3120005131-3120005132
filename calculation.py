@@ -4,9 +4,9 @@ class calculation:
     originfile = "",
     write_file = "",
     current_text = ""
-    def __init__(self):
-        self.originfile = open("./file_box/exercises.txt", 'r', encoding='utf-8')
-        self.write_file = open("./file_box/answerfile.txt",'w',encoding='utf-8')
+    def __init__(self,exercise,answer):
+        self.originfile = open("./file_box/"+exercise, 'r', encoding='utf-8')
+        self.write_file = open("./file_box/"+answer,'w',encoding='utf-8')
 
     # 将当行表达式处理
     def dealwith_singleline(self):
