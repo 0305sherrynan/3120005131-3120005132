@@ -20,12 +20,12 @@ def main_func():
     args = parser.parse_args()
     #创建生成问题的类，传入生成的个数和范围
     if args.f == 1:
-        create_questions1 = create_questions(args.n,args.r)
+        create_questions1 = create_questions(args.n,args.r,args.e)
         create_questions1.main_work()
-        calculation1 = calculation()
+        calculation1 = calculation(args.e,args.a)
         calculation1.dealwith_singleline()
     elif args.f == 2:
-        compare1 = compare()
+        compare1 = compare(args.a)
         compare1.compare_correct()
         compare1.write_info()
 
@@ -39,5 +39,3 @@ def main_func():
 
 if __name__ == '__main__':
     main_func()
-
-#   这是一个测试
